@@ -26,7 +26,7 @@ my $sruQuery = 'http://pub.uni-bielefeld.de/sru?version=1.1&operation=searchRetr
 my $modsResponse = _getSruResponse($sruQuery);
 my $response_ref = _extractMods($modsResponse, 100);
 
-$tt->process('repec.tmpl', $response_ref) || die $tt->error;
+$tt->process('repecWorkingPaper.tmpl', $response_ref) || die $tt->error;
 
 =head2 _getSruResponse
 	process the REST SRU request via LWP

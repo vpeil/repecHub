@@ -1,0 +1,22 @@
+Template-Type: ReDIF-Paper 1.0
+[% FOREACH entry IN records %]
+[% FOREACH auth IN entry.author %]
+Author-Name:  [% auth.full %]
+Author-Name-First: [% auth.given %]
+Author-Name-Last: [% auth.family %]
+Author-Workplace-Name: Faculty of Business Administration and Economics, Bielefeld University, Germany[% END %]
+Title: [% entry.title.0 %]
+[% IF entry.abstract %]
+Abstract: [% entry.abstract.0 %] [% END %]
+[% IF entry.host.pages %]Length: [% entry.host.pages %] [% END %]
+Creation-Date: [% entry.publ_year %]
+Publication-Status: Published in [% host.title %]
+[% FOREACH rel_entry IN entry.constituent %]
+File-URL: [% rel_entry.url.0 %]
+File-Format: Application/pdf
+File-Function: ??? 
+[% END %]
+[% IF entry.subject %]Keywords: [% FOREACH subj_entry IN entry.subject %][% IF loop.last %][% subj_entry %][% ELSE %][% subj_entry %], [% END %][% END %][% END %]
+[% IF entry.series.volume %]Handle: RePEc:XXX_SERIES:wpaper:[% entry.series.volume %][% END %]
+[% IF entry.series.issue %]Handle: RePEc:XXX_SERIES:wpaper:[% entry.series.issue %][% END %]
+[% END %]
