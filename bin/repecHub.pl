@@ -19,6 +19,8 @@ my $tt = Template->new({
        COMPILE_DIR => '/tmp/ttc',
        STAT_TTL  => 60,
    }) ;
+
+# example query
 my $sruQuery = 'http://pub.uni-bielefeld.de/sru?version=1.1&operation=searchRetrieve&query=issn=0931-6558&maximumRecords=250';
 
 my $modsResponse = _getSruResponse($sruQuery);
@@ -36,7 +38,7 @@ sub _getSruResponse {
   my $my_ua = LWP::UserAgent->new();
 
   $my_ua->agent('Netscape/4.75');
-  $my_ua->from('agent@ub.uni-bielefeld.de');
+  $my_ua->from('agent@invalid.com');
   $my_ua->timeout(60);
   $my_ua->max_size(5000000); # max 5MB
 
